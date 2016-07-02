@@ -15,12 +15,13 @@ class CarController extends Controller
         $cars = car::all();
         return view('cars' , ['cars' => $cars]); 
     }
+    
     public function edit($id){
         $car = car::find($id);
        return Response::json($car);
     }
     
-    
+    //update v=car via ajax request
     public function update(Request $request){
         $car = new car();
         $car = car::find($request['carid']);
@@ -28,16 +29,15 @@ class CarController extends Controller
          $car->model = $request['model'];
           $car->production_year = $request['year'];
         $car->update();
+        //return json object
         return response()->json(['new_brand' => $car->Brand , 'new_model' => $car->model , 'new_year' => $car->production_year] , 200);
-    }else{
-      return refresh();
-    }
+    
     }
       public function delete($id){
           $car = car::where('id', $id)->first();
         
         $car->delete();
-        // return response()->json(['done' => 'done'] , 200 );
+       
     }
     
      public function add(){
