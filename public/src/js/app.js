@@ -82,7 +82,7 @@ $('.add').click(function(e){
 
 });
 
-    /*****Delete***/
+    /*****Delete*****/
     
     
 $('.delete').click(function(){
@@ -102,13 +102,6 @@ $('.delete').click(function(){
         $('#'+car_id).hide();
         });
         }
-
-
-
-
-
-
-
 });
     
     /***close**/
